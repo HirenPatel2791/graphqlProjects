@@ -1,0 +1,37 @@
+query findCompany {
+    company(id:"2"){
+      id
+      name
+      description
+      users {
+        firstName
+        age
+      }
+    }
+  }
+  
+  query findCompany2 {
+    company(id:"2"){
+      id
+      name
+      description
+      users {
+        age
+      }
+    }
+  }
+  
+  query manyCompany {
+    c1: company(id: "1") {
+      ...companyDetails
+    }
+    c2: company(id: "2") {
+      ...companyDetails
+    }
+  }
+  
+  fragment companyDetails on Company {
+    id
+    name
+    description
+  }
